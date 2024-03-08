@@ -1,8 +1,16 @@
 package hendler
 
-import "github.com/gin-gonic/gin"
+import (
+	"github.com/KhilikEgor/todo-app/pkg/service"
+	"github.com/gin-gonic/gin"
+)
 
 type Hendler struct {
+	services *service.Service
+}
+
+func NewHendler(services *service.Service) *Hendler {
+	return &Hendler{services: services}
 }
 
 func (h *Hendler) InitRoutes() *gin.Engine {
